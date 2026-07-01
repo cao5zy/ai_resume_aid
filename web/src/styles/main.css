@@ -1,0 +1,150 @@
+/* ===== Design Tokens ===== */
+:root {
+  --primary-color: #1A7A7A;
+  --primary-hover: #146464;
+  --primary-light: #E0F0F0;
+  --accent-color: #E8A838;
+  --accent-hover: #C98E2A;
+  --bg-color: #FAF8F5;
+  --bg-warm: #FFF9F2;
+  --surface-color: #FFFFFF;
+  --text-color: #2D2D2D;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border-color: #E0DDD8;
+  --border-focus: #1A7A7A;
+  --success-color: #4CAF50;
+  --error-color: #D9534F;
+  --error-light: #FDF0EF;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 40px;
+  --spacing-unit: 8px;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 16px;
+  --max-width: 900px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.10);
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.4s ease;
+  --font-family: 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* ===== Large Font Mode ===== */
+.large-font {
+  --font-size-base: 20px;
+  --font-size-lg: 24px;
+  --font-size-xl: 32px;
+  --font-size-2xl: 40px;
+  --font-size-3xl: 52px;
+}
+
+/* ===== High Contrast Mode ===== */
+.high-contrast {
+  --text-color: #000000;
+  --text-secondary: #333333;
+  --text-muted: #555555;
+  --bg-color: #FFFFFF;
+  --bg-warm: #FFFFFF;
+  --surface-color: #FFFFFF;
+  --primary-color: #0055AA;
+  --primary-hover: #003D7A;
+  --primary-light: #E6F0FA;
+  --accent-color: #8B5000;
+  --border-color: #000000;
+  --border-focus: #0055AA;
+}
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-base);
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Focus ===== */
+:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ===== Element Plus overrides ===== */
+.el-button--primary {
+  --el-button-bg-color: var(--primary-color);
+  --el-button-border-color: var(--primary-color);
+  --el-button-hover-bg-color: var(--primary-hover);
+  --el-button-hover-border-color: var(--primary-hover);
+  --el-button-active-bg-color: var(--primary-hover);
+  --el-button-active-border-color: var(--primary-hover);
+}
+
+.el-upload-dragger {
+  border: 2px dashed var(--border-color) !important;
+  border-radius: var(--border-radius) !important;
+  background: var(--surface-color) !important;
+}
+
+.el-upload-dragger:hover {
+  border-color: var(--primary-color) !important;
+}
+
+/* ===== Transitions ===== */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--transition-slow);
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all var(--transition-slow);
+}
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-12px);
+}

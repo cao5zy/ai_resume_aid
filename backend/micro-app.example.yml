@@ -1,0 +1,5 @@
+routes: ["/resume-aid-api"]
+container_name: "ai_resume_aid_backend"
+container_port: 3001
+app_type: "api"
+description: "AI微光求职 - 后端API服务（简历优化、PDF导出、求职搜索）"
