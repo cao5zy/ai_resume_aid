@@ -2,6 +2,10 @@
 # Stage 1: Planner — cache dependencies
 # ============================================================
 FROM rust:1-slim-bookworm AS planner
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    pkg-config \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 RUN cargo init --name ai_resume_aid
 COPY Cargo.toml Cargo.lock ./
@@ -11,11 +15,16 @@ RUN cargo build --release 2>/dev/null; true
 # Stage 2: Builder — compile with cached deps
 # ============================================================
 FROM rust:1-slim-bookworm AS builder
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    pkg-config \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY --from=planner /app/target /app/target
 COPY --from=planner /usr/local/cargo /usr/local/cargo
 COPY Cargo.toml Cargo.lock ./
 COPY src ./src
+COPY fonts ./fonts
 RUN cargo build --release --offline
 
 # ============================================================

@@ -1,5 +1,5 @@
 routes: ["/resume-aid"]
-container_name: "ai_resume_aid_web"
+container_name: "1-ai_resume_aid_web"
 container_port: 80
 app_type: "static"
 description: "AI微光求职 - 免费简历优化前端应用 (Vue3 + Vite SPA)"
